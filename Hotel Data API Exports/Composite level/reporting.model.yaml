@@ -1,0 +1,57 @@
+HotelExportRequest:
+  type: object
+  properties:
+    hotelExports:
+      type: array
+      items:
+        $ref: '#/HotelExport'
+    customExportAttributes:
+      $ref: '#/CustomExportAttributes'
+HotelsReportDownloadLink:
+  type: object
+  properties:
+    downloadLink:
+      type: string
+HotelExport:
+  type: object
+  properties:
+    venueCode:
+      description: The venueCode, unique to each event.
+      type: string
+      example: ABCDEFGHIJKLMNOP
+    latitude:
+      type: string
+      example: 123.456
+    longitude:
+      type: string
+      example: 123.456
+    hotelCodes:
+      description: The external hotel codes, unique to each hotel.
+      type: array
+      items:
+        type: integer
+      example: [ 12345, 54321 ]
+    checkIn:
+      type: string
+      format: date
+      example: 2022-12-25
+    checkOut:
+      type: string
+      format: date
+      example: 2022-12-26
+CustomExportAttributes:
+  type: object
+  properties:
+    hotelProviderUserKey:
+      type: string
+      example: abcdefghij1234567890abcdefghij12
+    hotelProviderUserSecret:
+      type: string
+      example: 1234567890
+    description:
+      type: string
+      example: b_to_c
+    radius:
+      type: integer
+      example: 25
+      description: The size of the radius for each point of interest search in miles

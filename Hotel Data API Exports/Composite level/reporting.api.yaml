@@ -1,0 +1,21 @@
+export-hotels:
+  post:
+    tags:
+      - Reporting
+    description: Export hotels info into an Excel file by providing a list of coordinates or hotel codes.
+    operationId: exportHotelsAsExcel
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: 'reporting.model.yaml#/HotelExportRequest'
+      required: true
+    responses:
+      200:
+        description: Return a link to download an Excel file containing hotels info.
+        content:
+          application/json:
+            schema:
+              $ref: 'reporting.model.yaml#/HotelsReportDownloadLink'
+      500:
+        $ref: 'common.response.yaml#/DefaultResponse'
